@@ -281,6 +281,9 @@
         const orderForm = document.getElementById('orderForm');
         const loginForm = document.getElementById('loginForm');
         const registerForm = document.getElementById('registerForm');
+const TELEGRAM_BOT_TOKEN = '8694696414:AAHTBYIwWv8vT_Q0RIfZdsWgcnzL7xw8Gmc'; 
+const TELEGRAM_CHAT_ID = '391832016';
+
 
         if (searchInput) searchInput.oninput = handleSearch;
         if (categoryFilter) categoryFilter.onchange = handleSearch;
@@ -331,6 +334,8 @@
         const titleEl = document.getElementById('categoryTitle');
         if(titleEl) titleEl.innerText = category === 'All' ? 'Premium USA Collection' : category + ' Products';
     }
+
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbw1RJe1F9XO7XPBDAi81yZswA4PzyeP7Ybd9rW4ORp5cb-Z7_w__o0ZELYdtqFzxiRhug/exec';
 
     function openProductModal(product) {
         currentSelectedProduct = product;
