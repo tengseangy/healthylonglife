@@ -177,15 +177,24 @@
     const TELEGRAM_CHAT_ID = '391832016';
     const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxdXhTrwMc_7UpdTkeSS9oWJZD_0T-Bngs8T71lMafjvTHy12f8qQVWSuP54o6bt1kk/exec';
 
-    const products = [
-        { id: 1, name: "Premium Omega-3 Fish Oil", category: "Vitamin", price: 25.99, image: "https://placehold.co/400x400/emerald/white?text=Omega3", desc: "High-potency heart health support. Pure USA source." },
-        { id: 2, name: "Advanced Joint Relief", category: "Pain", price: 34.50, image: "https://placehold.co/400x400/slate/white?text=JointRelief", desc: "Fast-acting pain relief for active lifestyles." },
-        { id: 3, name: "Vitamin C - Immune Boost", category: "Vitamin", price: 18.00, image: "https://placehold.co/400x400/orange/white?text=VitaminC", desc: "Essential 1000mg immune support." },
-        { id: 4, name: "Organic Green Tea Extract", category: "Tea/Drinks", price: 22.00, image: "https://placehold.co/400x400/green/white?text=GreenTea", desc: "Antioxidant rich metabolic booster." },
-        { id: 5, name: "Whitening Pro Toothpaste", category: "Teeth", price: 12.50, image: "https://placehold.co/400x400/blue/white?text=Whitening", desc: "Professional grade whitening from USA." },
-        { id: 6, name: "Hyaluronic Face Serum", category: "Skin/Face", price: 45.00, image: "https://placehold.co/400x400/pink/white?text=FaceSerum", desc: "Deep hydration for glowing skin." },
-        { id: 7, name: "Whey Protein Isolate", category: "Exercise/Gym", price: 55.00, image: "https://placehold.co/400x400/black/white?text=WheyProtein", desc: "Pure muscle recovery formula." },
-        { id: 8, name: "Daily Multivitamin Pro", category: "Health", price: 29.99, image: "https://placehold.co/400x400/teal/white?text=MultiVitamin", desc: "Complete nutritional balance." }
+     const products = [
+        { id: 1, name: "Biotin 5,000mcg", category: "Vitamin", price: 32, image: "https://i.postimg.cc/d1Qkxznr/Biotin-វ-ត-ម-នជ-ន-យស-ប-ក-សក-ក-រចក.jpg", desc: "SPRING VALLEY.
+Biotin PER 5,000 mcg SOFTGEL DIETARY SUPPLEMENT HAIR/SKIN/NAIL HEALTH* Supports energy metabolism and healthy hair, skin, and nails"វីតាមីនជំនួយស្បែក សក់ ក្រចក ឲ្យស្អាត USA $32 មាន120គ្រាប់ ញាំមួយថ្ងៃ1គ្រាប់ ពេលបាយហើយ មុនពេលចូលគេង\nTHESE STATEMENTS HAVE NOT BEEN EVALUATED BY THE FOOD AND DRUG ADMINISTRATION. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE.\n120 SOFTGELS 5,000mcg." },
+        { id: 2, name: "Bling-Bling Toothpaste", category: "Pain", price: 26, image: "https://i.postimg.cc/C1MBQWmy/Bling-Bling-Toothpaste.jpg", desc: "Bling-Bling Toothpaste ឈាមអញ្ចាញ ធ្មេញលឿនដង្កូវស៊ីធ្មេញមាត់មានក្លិនមិនល្អ ការពារធ្មេញរបស់លោកអ្នកអោយរឹងមាំ ការពារដង្កូវស៊ីញ& ធ្វើអោយឈ្មួញ\nNATURAL PURE WHITENING BLING-BLING TOOTHPASTE INE FLAVOR Jee Yurt NATURAL PURE WHITENING BLING-BLING\nTOOTHPASTE 1.76 oz/50g ១កំប៉ុង BLING-BLING TOOTHPASTE ២កំប៉ុង BLING-BLING BLING-BLING TOOTHPASTE TOOTHPASTE\nតាតា ៤កំប៉ុង 15$ សេវាដឹកជញ្ជូន2$ 26$ ហ្វីដឹកជញ្ជូន 66483 BLING-E BLING-BLING LING-BLING BLING TOOTHP TOOTHPASTE OOTHPASTE PASTE ប្រ៊ីដឹកជញ្ជូន 1.76 oz / 50g LIME FLAVOR 24 BLIN BLING TOOT PASTE." },
+        { id: 3, name: "Butenafine Cream Jock Itch", category: "Vitamin", price: 29.00, image: "https://i.postimg.cc/HxWchf3F/Butenafine-Hydrochloride-ថ-ម-ប-ប-ត-រម-ស-ប-រ-ក-ងជ-ង.jpg", desc: "NDC​ 49035-178-08 Compare to Lotrimin Ultra Jock Itch Active Ingredient CONTAINS THE DRUG: BUTENAFINE HYDROCHLORIDE Butenafine Hydrochloride Cream 1% Antifungal Clinically Proven To Cure Most Jock Itch\n• Prescription Strength\n• Relieves Itching,Burning and Chafing NET WT 0.42 OZ (12 g) $29 ថ្នាំជួយបំបាត់រមាស់,ប្រេះក្រហែង ដៃជើង,រលាក់ស្នាម..USA ប្រើសំរាប់តែអ្នកមាន បញ្ហាចាប់ពីអាយុ12ឆ្នាំឡើង+." },
+        { id: 4, name: "Eye Drops Redness & Dry Relief", category: "Tea/Drinks", price: 29.00, image: "https://i.postimg.cc/j5qwFGvm/Eye-Drops.jpg", desc: "equateTM REDNESS AND DRY EYE RELIEF\nCompare to Clear Eyes active Ingredients Eye Drops Glycerin 0.25% Lubricant Naphazoline HCI 0.012% Redness Reliever• Soothes & Protects • Sterile O.5 FL OZ (15 mL) ថ្នាំបន្តក់ភ្នែកក្រហមស្ងួត USA $29\nប្រើសំរាប់តែអ្នកមាន បញ្ហាភ្នែកក្រហម ស្ងាត បន្តក់1 ថ្ងៃ 4 ដងបាន." },
+        { id: 5, name: "Gas Relief Extra Strength 125mg", category: "Teeth", price: 29, image: "https://i.postimg.cc/DZfJMt59/Gas-Relief.jpg", desc: "Gas Relief ថ្នាំសំរាប់ហើមពោះ មិនដើរខ្យល់ ពិបាកក្នុងខ្លួន USA $29 មាន72 គ្រាប់ ញាំ 1 ថ្ងៃ 1 គ្រាប់ពេល មានបញ្ហាឈឺខាងលើ\nequateTM EXTRA STRENGTH NDC 49035-266-72 Compare to Gas-X® Extra Strength active ingredient Gas Relief Antigas/Simethicone 125 mg Small, Easy To Swallow Fast Relief of:Pressure Bloating ⚫Discomfort Actual Size 125 72mg SOFTGELS TAMPER EVIDENT: DO NOT USE IF PRINTED SAFETY SEAL AROUND BOTTLE OR UNDER CAP IS BROKEN OR MISSING.Drug Facts." },
+        { id: 6, name: "Melatonin 10mg Sleep Support", category: "Skin/Face", price: 32.00, image: "https://i.postimg.cc/0QtMRcHT/Melatonin-Sleep-support.jpg", desc: "THESE STATEMENTS HAVE NOT BEEN EVALUATED BY THE FOOD AND DRUG ADMINISTRATION. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE.\nSPRING VALLEY.FAST DISSOLVE Melatonin PER 10 mg SERVING DIETARY SUPPLEMENT\nSLEEP SUPPORT* Helps establish normal sleep patterns. Helps you get better sleep so you wake up refreshed."Fall asleep faster, stay asleep longer.120 TABLETS Artificial Strawberry Flavor
+វីតាមីនជំនួយគេង USA $32 មាន120គ្រាប់ ញាំមួយថ្ងៃ1គ្រាប់ ពេលបាយហើយមុនចូលគេង 10mg." },
+        { id: 7, name: "Prostate Support 90 Capsules", category: "Exercise/Gym", price: 34.00, image: "https://i.postimg.cc/3RL45nbz/Prostate-Support.jpg", desc: "ទទួលស្គាល់ពី FORMULATED PROSTATE SUPPORT
+វីតាមីនជួយក្រពេញប្រូស្តាត
+អត្ថប្រយោជន៏
+- នោមខ្សោយ -រាន់នោម
+-នោមយូរ
+- នោមញឹក - នោមមិនអស់ - នោមលើកយ «ខ្សោយផ្លូវភេទ លិង្គមិនឡើងរឹង • មានឈាមលាយជាមួយទឹកនោម -បណ្ដាលឱ្យកើតមហារីកក្រពេញប្រឃ្លាតធ្ងន់ធ្ង 1កំប៉ុងចំនួន90គ្រាប់លេបបានរយៈពេល១ខែ​​ 34$១ កំប៉ុង
+DreamZone​ PROSTATE SUPPORT Support For Men Helps Support Male Function 90 CAPSULES FDA FRON GMP." },
+        { id: 8, name: "CoQ10 300mg Heart Health", category: "Health", price: 34, image: "https://i.postimg.cc/Kz9kSJsd/Spring-Valley-ជ-ន-យប-ដ-ង.jpg", desc: "THESE STATEMENTS HAVE NOT BEEN EVALUATED BY THE FOOD AND DRUG ADMINISTRATION. THIS PRODUCT IS NOT INTENDED TO DIAGNOSE, TREAT, CURE, OR PREVENT ANY DISEASE.SPRING VALLEY.RAPID-RELEASE CoQ10 PER 300 mg SOFTGEL
+DIETARY SUPPLEMENT HEART HEALTH* Supports cellular energy production and cardiovascular health 60 SOFTGELS CoQ10 ជំនួយបេះដូង នឹង កម្លាំងUSA $34 មាន60 គ្រាប់ ញាំ 1 ថ្ងៃ 1 គ្រាប់ពេល បាយហើយ." }
     ];
 
     let currentSelectedProduct = null;
