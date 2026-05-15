@@ -20,11 +20,9 @@
 </head>
 <body class="text-slate-800">
 
-<!-- Navigation Header -->
 <header class="sticky top-0 z-50 glass-effect border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20 gap-4">
-            <!-- Logo -->
             <div class="flex items-center gap-2 cursor-pointer" onclick="resetFilters()">
                 <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-200">
                     <i class="fas fa-leaf"></i>
@@ -32,7 +30,6 @@
                 <h1 class="text-2xl font-black tracking-tight text-slate-900 hidden sm:block">Longlifehealth</h1>
             </div>
 
-            <!-- Search Bar + Category Combo Box -->
             <div class="flex-1 max-w-2xl hidden md:flex items-center bg-slate-100 rounded-2xl p-1 border border-slate-200">
                 <select id="categoryFilter" class="bg-transparent px-4 py-2 font-bold text-sm text-slate-600 outline-none border-r border-slate-300 cursor-pointer">
                     <option value="All">All Categories</option>
@@ -45,12 +42,9 @@
                     <option value="Exercise/Gym">Exercise/Gym</option>
                 </select>
                 <input type="text" id="searchInput" placeholder="Search premium USA products..." class="flex-1 bg-transparent px-4 py-2 text-sm outline-none">
-                <div class="px-4 text-slate-400">
-                    <i class="fas fa-search"></i>
-                </div>
+                <div class="px-4 text-slate-400"><i class="fas fa-search"></i></div>
             </div>
 
- <!-- Action Buttons -->
             <div class="flex items-center gap-3">
                 <button onclick="document.getElementById('authModal').classList.remove('hidden')" class="px-5 py-2.5 font-bold text-sm text-slate-700 hover:text-emerald-600 transition">Log / Register</button>
                 <button onclick="handleHeaderOrder()" class="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-emerald-100 hover:bg-emerald-700 transition">Order New</button>
@@ -59,7 +53,6 @@
     </div>
 </header>
 
-<!-- Main Content Section -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
         <div>
@@ -70,17 +63,14 @@
             <span id="productCount">0</span> Products Found
         </div>
     </div>
-
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        <!-- Products will be injected here by JavaScript -->
-    </div>
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
 </main>
 
 <!-- Product Detail Modal -->
 <div id="productDetailModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
     <div class="modal-bg absolute inset-0" onclick="closeModal('productDetailModal')"></div>
     <div class="bg-white rounded-3xl max-w-4xl w-full relative shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
-        <button onclick="closeModal('productDetailModal')" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center shadow-md hover:bg-white transition">
+        <button onclick="closeModal('productDetailModal')" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center shadow-md">
             <i class="fas fa-times"></i>
         </button>
         <div class="md:w-1/2 bg-slate-50 flex items-center justify-center p-8">
@@ -89,22 +79,12 @@
         <div class="md:w-1/2 p-8 overflow-y-auto">
             <span id="modalCategory" class="text-emerald-600 font-bold text-xs uppercase tracking-widest px-3 py-1 bg-emerald-50 rounded-full">Category</span>
             <h2 id="modalTitle" class="text-3xl font-bold text-slate-900 mt-4 leading-tight">Product Name</h2>
-            <div class="flex items-center gap-2 mt-2 text-amber-500">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <span class="text-slate-400 text-sm font-medium ml-2">(4.9/5 Customer Rating)</span>
-            </div>
-            <div class="mt-6">
-                <p id="modalPrice" class="text-3xl font-black text-emerald-600">$0.00</p>
-                <p class="text-xs text-slate-400 font-medium">Free Shipping from USA to Cambodia</p>
-            </div>
+            <p id="modalPrice" class="text-3xl font-black text-emerald-600 mt-4">$0.00</p>
             <div class="mt-8 space-y-4">
                 <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-2">Description</h4>
-                <p id="modalDesc" class="text-slate-600 leading-relaxed text-sm">Product description goes here.</p>
+                <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed">Description.</p>
             </div>
-            <button onclick="openOrderModal()" class="w-full mt-10 bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition shadow-xl flex items-center justify-center gap-3">
-                <i class="fas fa-shopping-cart"></i>
-                Order This Item Now
-            </button>
+            <button onclick="openOrderModal()" class="w-full mt-10 bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition shadow-xl">Order This Item Now</button>
         </div>
     </div>
 </div>
@@ -113,152 +93,90 @@
 <div id="orderModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4">
     <div class="modal-bg absolute inset-0" onclick="closeModal('orderModal')"></div>
     <div class="bg-white rounded-3xl max-w-lg w-full relative shadow-2xl p-8 max-h-[95vh] overflow-y-auto">
-        <div class="text-center mb-8">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-clipboard-list text-2xl"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-slate-900">Complete Your Order</h2>
-            <p class="text-slate-500">We will contact you via Telegram or Phone</p>
-        </div>
-
-        <form id="orderForm" class="space-y-5">
-            <div>
-                <label class="block text-sm font-semibold text-slate-600 mb-1">Product Selection</label>
-                <input type="text" id="formProduct" readonly class="w-full bg-slate-50 px-4 py-3 rounded-xl border border-slate-200 font-medium text-emerald-700 outline-none">
-            </div>
-            <div class="grid grid-cols-1 gap-5">
-                <div>
-                    <label class="block text-sm font-semibold text-slate-600 mb-1">Phone Number</label>
-                    <input type="tel" required id="formPhone" placeholder="e.g. 016 499 964" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-600 mb-1">Telegram Username (@)</label>
-                    <input type="text" required id="formTelegram" placeholder="@username" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-slate-600 mb-1">Delivery Address (Phnom Penh / Province)</label>
-                    <textarea required id="formAddress" rows="3" placeholder="Street number, House number, City..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none resize-none"></textarea>
-                </div>
-            </div>
-            <button type="submit" class="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold hover:bg-emerald-700 transition shadow-lg flex items-center justify-center gap-2">
-                <i class="fas fa-paper-plane"></i>
-                Submit Order to Telegram
-            </button>
+        <h2 class="text-2xl font-bold text-center mb-6">Complete Your Order</h2>
+        <form id="orderForm" class="space-y-4">
+            <input type="text" id="formProduct" readonly class="w-full bg-slate-100 px-4 py-3 rounded-xl font-bold text-emerald-700 outline-none">
+            <input type="text" required id="formName" placeholder="Your Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500">
+            <input type="tel" required id="formPhone" placeholder="Phone Number" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500">
+            <input type="text" required id="formTelegram" placeholder="Telegram @username" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500">
+            <textarea required id="formAddress" rows="3" placeholder="Delivery Address..." class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:ring-2 focus:ring-emerald-500 resize-none"></textarea>
+            <button type="submit" id="submitOrderBtn" class="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-emerald-700 transition">Confirm & Send Order</button>
         </form>
     </div>
 </div>
 
-<!-- Auth Modal (Log/Register) -->
+<!-- Legal Modal (For Mission, Terms, etc.) -->
+<div id="legalModal" class="fixed inset-0 z-[130] hidden flex items-center justify-center p-4">
+    <div class="modal-bg absolute inset-0" onclick="closeModal('legalModal')"></div>
+    <div class="bg-white rounded-3xl max-w-2xl w-full relative shadow-2xl p-10 max-h-[85vh] overflow-y-auto">
+        <button onclick="closeModal('legalModal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900"><i class="fas fa-times text-xl"></i></button>
+        <h2 id="legalTitle" class="text-2xl font-bold text-slate-900 mb-6">Title</h2>
+        <div id="legalContent" class="text-slate-600 leading-relaxed space-y-4"></div>
+    </div>
+</div>
+
+<!-- Auth Modal -->
 <div id="authModal" class="fixed inset-0 z-[120] hidden flex items-center justify-center p-4">
     <div class="modal-bg absolute inset-0" onclick="closeModal('authModal')"></div>
-    <div class="bg-white rounded-3xl max-w-md w-full relative shadow-2xl overflow-hidden">
-        <div class="flex border-b border-slate-100">
-            <button id="loginTab" onclick="switchAuthTab('login')" class="flex-1 py-4 font-bold text-emerald-600 border-b-2 border-emerald-600 bg-emerald-50/30">Login</button>
-            <button id="registerTab" onclick="switchAuthTab('register')" class="flex-1 py-4 font-bold text-slate-400 hover:text-emerald-600 transition">Register</button>
-        </div>
-        <div class="p-8">
-            <form id="loginForm" class="space-y-4">
-                <input type="email" required placeholder="Email Address" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                <input type="password" required placeholder="Password" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                <button type="submit" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg shadow-emerald-100 hover:bg-emerald-700 transition mt-4">Login to Account</button>
-            </form>
-            <form id="registerForm" class="space-y-4 hidden">
-                <input type="text" required placeholder="Full Name" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                <input type="email" required placeholder="Email Address" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                <input type="tel" required placeholder="Phone Number" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                <input type="password" required placeholder="Create Password" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none">
-                <button type="submit" class="w-full bg-emerald-600 text-white py-3 rounded-xl font-bold shadow-lg shadow-emerald-100 hover:bg-emerald-700 transition mt-4">Create New User</button>
-            </form>
-        </div>
+    <div class="bg-white rounded-3xl max-w-md w-full relative shadow-2xl p-8 text-center">
+        <i class="fas fa-user-circle text-5xl text-emerald-100 mb-4"></i>
+        <h3 class="text-xl font-bold mb-4">Login or Register</h3>
+        <p class="text-slate-500 text-sm mb-6">User accounts are currently being synchronized with our USA database. Please check back soon.</p>
+        <button onclick="closeModal('authModal')" class="w-full bg-slate-100 py-3 rounded-xl font-bold">Close</button>
     </div>
 </div>
 
 <div id="successToast" class="fixed bottom-10 right-10 z-[200] transform translate-y-40 opacity-0 transition-all duration-500 pointer-events-none">
-    <div class="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-emerald-500/30">
-        <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center">
-            <i class="fas fa-check text-white"></i>
-        </div>
-        <div>
-            <p class="font-bold text-lg">Order Sent!</p>
-            <p class="text-slate-400 text-sm">We will contact you shortly.</p>
-        </div>
+    <div class="bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-2xl border border-emerald-500/30">
+        <p class="font-bold text-lg" id="toastText">Order Sent!</p>
     </div>
 </div>
 
 <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            <!-- Brand Column -->
             <div class="space-y-6">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white">
-                        <i class="fas fa-leaf text-sm"></i>
-                    </div>
-                    <h2 class="text-xl font-bold text-white">Longlifehealth</h2>
-                </div>
-                <p class="text-sm leading-relaxed">Your trusted source for premium health products directly imported from the USA. Quality you can feel, results you can see.</p>
-                <div class="flex gap-4">
-                    <a href="https://t.me/challizz" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-emerald-500 hover:text-white transition">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
+                <div class="flex items-center gap-2 text-white"><i class="fas fa-leaf text-emerald-500"></i><h2 class="text-xl font-bold">Longlifehealth</h2></div>
+                <p class="text-sm">Trusted premium health products directly imported from the USA.</p>
             </div>
-
-            <!-- Contact Column -->
             <div>
                 <h4 class="text-white font-bold mb-6">Contact Us</h4>
                 <ul class="space-y-4 text-sm">
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-map-marker-alt text-emerald-500 mt-1"></i>
-                        <span>Phnom Penh, Cambodia<br>(Imported from USA)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-phone-alt text-emerald-500"></i>
-                        <span>016 499 964</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fab fa-telegram text-emerald-500"></i>
-                        <span>@challizz</span>
-                    </li>
+                    <li><i class="fas fa-map-marker-alt text-emerald-500 mr-2"></i> Phnom Penh, Cambodia</li>
+                    <li><i class="fas fa-phone-alt text-emerald-500 mr-2"></i> 016 499 964</li>
+                    <li><i class="fab fa-telegram text-emerald-500 mr-2"></i> @challizz</li>
                 </ul>
             </div>
-
-            <!-- Quick Links -->
             <div>
                 <h4 class="text-white font-bold mb-6">About Us</h4>
                 <ul class="space-y-4 text-sm">
-                    <li><a href="#" class="hover:text-emerald-500 transition">Our Mission</a></li>
-                    <li><a href="#" class="hover:text-emerald-500 transition">USA Partnerships</a></li>
-                    <li><a href="#" class="hover:text-emerald-500 transition">Shipping Policy</a></li>
-                    <li><a href="#" class="hover:text-emerald-500 transition">Return Policy</a></li>
+                    <li><button onclick="openLegal('Mission')" class="hover:text-emerald-500">Our Mission</button></li>
+                    <li><button onclick="openLegal('Partnerships')" class="hover:text-emerald-500">USA Partnerships</button></li>
+                    <li><button onclick="openLegal('Shipping')" class="hover:text-emerald-500">Shipping Policy</button></li>
+                    <li><button onclick="openLegal('Return')" class="hover:text-emerald-500">Return Policy</button></li>
                 </ul>
             </div>
-
-            <!-- Legal Column -->
             <div>
-                <h4 class="text-white font-bold mb-6">Privacy & Condition</h4>
+                <h4 class="text-white font-bold mb-6">Legal</h4>
                 <ul class="space-y-4 text-sm">
-                    <li><a href="#" class="hover:text-emerald-500 transition">Terms of Service</a></li>
-                    <li><a href="#" class="hover:text-emerald-500 transition">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-emerald-500 transition">Cookie Settings</a></li>
-                    <li><a href="#" class="hover:text-emerald-500 transition">Disclaimer</a></li>
+                    <li><button onclick="openLegal('Terms')" class="hover:text-emerald-500">Terms of Service</button></li>
+                    <li><button onclick="openLegal('Privacy')" class="hover:text-emerald-500">Privacy Policy</button></li>
+                    <li><button onclick="openLegal('Disclaimer')" class="hover:text-emerald-500">Disclaimer</button></li>
                 </ul>
             </div>
         </div>
-        
         <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
-            <p>&copy; 2024 Longlifehealth. All rights reserved. Premium USA Health Products.</p>
+            &copy; 2024 Longlifehealth. All rights reserved.
         </div>
     </div>
 </footer>
 
 <script>
+    // --- CONFIGURATION (YOUR KEYS) ---
+    const TELEGRAM_BOT_TOKEN = '8694696414:AAHTBYIwWv8vT_Q0RIfZdsWgcnzL7xw8Gmc'; 
+    const TELEGRAM_CHAT_ID = '391832016';
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxdXhTrwMc_7UpdTkeSS9oWJZD_0T-Bngs8T71lMafjvTHy12f8qQVWSuP54o6bt1kk/exec';
+
     const products = [
         { id: 1, name: "Premium Omega-3 Fish Oil", category: "Vitamin", price: 25.99, image: "https://placehold.co/400x400/emerald/white?text=Omega3", desc: "High-potency heart health support. Pure USA source." },
         { id: 2, name: "Advanced Joint Relief", category: "Pain", price: 34.50, image: "https://placehold.co/400x400/slate/white?text=JointRelief", desc: "Fast-acting pain relief for active lifestyles." },
@@ -267,75 +185,37 @@
         { id: 5, name: "Whitening Pro Toothpaste", category: "Teeth", price: 12.50, image: "https://placehold.co/400x400/blue/white?text=Whitening", desc: "Professional grade whitening from USA." },
         { id: 6, name: "Hyaluronic Face Serum", category: "Skin/Face", price: 45.00, image: "https://placehold.co/400x400/pink/white?text=FaceSerum", desc: "Deep hydration for glowing skin." },
         { id: 7, name: "Whey Protein Isolate", category: "Exercise/Gym", price: 55.00, image: "https://placehold.co/400x400/black/white?text=WheyProtein", desc: "Pure muscle recovery formula." },
-        { id: 8, name: "Daily Multivitamin Pro", category: "Health", price: 29.99, image: "https://placehold.co/400x400/teal/white?text=MultiVitamin", desc: "Complete nutritional balance for men and women." }
+        { id: 8, name: "Daily Multivitamin Pro", category: "Health", price: 29.99, image: "https://placehold.co/400x400/teal/white?text=MultiVitamin", desc: "Complete nutritional balance." }
     ];
 
     let currentSelectedProduct = null;
 
     window.onload = () => {
         renderProducts(products);
-        
-        // Ensure elements exist before attaching listeners to avoid TypeErrors
-        const searchInput = document.getElementById('searchInput');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const orderForm = document.getElementById('orderForm');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-const TELEGRAM_BOT_TOKEN = '8694696414:AAHTBYIwWv8vT_Q0RIfZdsWgcnzL7xw8Gmc'; 
-const TELEGRAM_CHAT_ID = '391832016';
-
-
-        if (searchInput) searchInput.oninput = handleSearch;
-        if (categoryFilter) categoryFilter.onchange = handleSearch;
-        if (orderForm) orderForm.onsubmit = handleOrderSubmit;
-        if (loginForm) loginForm.onsubmit = handleLoginSubmit;
-        if (registerForm) registerForm.onsubmit = handleRegisterSubmit;
+        document.getElementById('searchInput').oninput = handleSearch;
+        document.getElementById('categoryFilter').onchange = handleSearch;
+        document.getElementById('orderForm').onsubmit = handleOrderSubmit;
     };
 
     function renderProducts(list) {
         const grid = document.getElementById('productGrid');
         const count = document.getElementById('productCount');
-        if(!grid) return;
-        
         grid.innerHTML = '';
         count.innerText = list.length;
-
         list.forEach(product => {
             const card = document.createElement('div');
             card.className = 'product-card bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm cursor-pointer';
             card.onclick = () => openProductModal(product);
             card.innerHTML = `
-                <div class="relative h-64 bg-slate-50 flex items-center justify-center p-6">
-                    <img src="${product.image}" alt="${product.name}" class="max-h-full object-contain">
-                    <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-slate-500 border border-slate-100">${product.category}</span>
-                </div>
+                <div class="h-64 bg-slate-50 flex items-center justify-center p-6"><img src="${product.image}" class="max-h-full object-contain"></div>
                 <div class="p-5">
-                    <h3 class="font-bold text-slate-800 text-lg mb-1 truncate">${product.name}</h3>
+                    <h3 class="font-bold text-slate-800 mb-1 truncate">${product.name}</h3>
                     <p class="text-emerald-600 font-black text-xl">$${product.price.toFixed(2)}</p>
-                    <button class="w-full mt-4 py-3 bg-emerald-50 text-emerald-700 rounded-xl font-bold text-sm hover:bg-emerald-600 hover:text-white transition">View Details</button>
                 </div>
             `;
             grid.appendChild(card);
         });
     }
-
-
- function handleSearch() {
-        const query = document.getElementById('searchInput').value.toLowerCase();
-        const category = document.getElementById('categoryFilter').value;
-        
-        const filtered = products.filter(p => {
-            const matchesSearch = p.name.toLowerCase().includes(query);
-            const matchesCategory = category === 'All' || p.category === category;
-            return matchesSearch && matchesCategory;
-        });
-
-        renderProducts(filtered);
-        const titleEl = document.getElementById('categoryTitle');
-        if(titleEl) titleEl.innerText = category === 'All' ? 'Premium USA Collection' : category + ' Products';
-    }
-
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxdXhTrwMc_7UpdTkeSS9oWJZD_0T-Bngs8T71lMafjvTHy12f8qQVWSuP54o6bt1kk/exec';
 
     function openProductModal(product) {
         currentSelectedProduct = product;
@@ -344,99 +224,89 @@ const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxdXhTrwMc_7Up
         document.getElementById('modalCategory').innerText = product.category;
         document.getElementById('modalPrice').innerText = `$${product.price.toFixed(2)}`;
         document.getElementById('modalDesc').innerText = product.desc;
-        
         document.getElementById('productDetailModal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
     }
 
     function openOrderModal() {
-        const formProduct = document.getElementById('formProduct');
-        if (currentSelectedProduct && formProduct) {
-            formProduct.value = currentSelectedProduct.name;
-        }
+        document.getElementById('formProduct').value = currentSelectedProduct ? currentSelectedProduct.name : "Custom Order";
         document.getElementById('productDetailModal').classList.add('hidden');
         document.getElementById('orderModal').classList.remove('hidden');
     }
 
-    function closeModal(id) {
-        const el = document.getElementById(id);
-        if(el) el.classList.add('hidden');
-        document.body.style.overflow = 'auto';
-    }
-
-    function handleHeaderOrder() {
-        const formProduct = document.getElementById('formProduct');
-        if (formProduct) {
-            formProduct.value = "General Health Consultation / Custom Order";
-        }
-        document.getElementById('orderModal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function handleOrderSubmit(e) {
+    async function handleOrderSubmit(e) {
         e.preventDefault();
+        const btn = document.getElementById('submitOrderBtn');
         const orderData = {
             product: document.getElementById('formProduct').value,
+            name: document.getElementById('formName').value,
             phone: document.getElementById('formPhone').value,
             telegram: document.getElementById('formTelegram').value,
             address: document.getElementById('formAddress').value
         };
-        showNotification("Success! Your order for " + orderData.product + " has been sent.");
-        closeModal('orderModal');
-        e.target.reset();
-    }
 
-    function handleLoginSubmit(e) {
-        e.preventDefault();
-        showNotification("Welcome back to Longlifehealth!");
-        closeModal('authModal');
-    }
+        btn.disabled = true;
+        btn.innerText = "Sending Order...";
 
-    function handleRegisterSubmit(e) {
-        e.preventDefault();
-        showNotification("Account created successfully!");
-        closeModal('authModal');
-    }
+        const msg = `🚀 *New Order*\n📦 *Item:* ${orderData.product}\n👤 *Name:* ${orderData.name}\n📞 *Phone:* ${orderData.phone}\n💬 *Telegram:* ${orderData.telegram}\n📍 *Address:* ${orderData.address}`;
 
-    function resetFilters() {
-        document.getElementById('searchInput').value = '';
-        document.getElementById('categoryFilter').value = 'All';
-        handleSearch();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        try {
+            // 1. Send to Telegram
+            await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: msg, parse_mode: 'Markdown' })
+            });
 
-    function switchAuthTab(tab) {
-        const loginTab = document.getElementById('loginTab');
-        const regTab = document.getElementById('registerTab');
-        const loginForm = document.getElementById('loginForm');
-        const regForm = document.getElementById('registerForm');
+            // 2. Send to Google Sheets
+            await fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                body: JSON.stringify(orderData)
+            });
 
-        if (tab === 'login') {
-            loginTab.className = "flex-1 py-4 font-bold text-emerald-600 border-b-2 border-emerald-600 bg-emerald-50/30";
-            regTab.className = "flex-1 py-4 font-bold text-slate-400 hover:text-emerald-600 transition";
-            loginForm.classList.remove('hidden');
-            regForm.classList.add('hidden');
-        } else {
-            regTab.className = "flex-1 py-4 font-bold text-emerald-600 border-b-2 border-emerald-600 bg-emerald-50/30";
-            loginTab.className = "flex-1 py-4 font-bold text-slate-400 hover:text-emerald-600 transition";
-            regForm.classList.remove('hidden');
-            loginForm.classList.add('hidden');
+            showNotification("Success! Order sent to Telegram and Worksheet.");
+            closeModal('orderModal');
+            e.target.reset();
+        } catch (err) {
+            showNotification("Error connecting to server. Try again.");
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Confirm & Send Order";
         }
     }
 
- function showNotification(msg) {
-        const toast = document.getElementById('successToast');
-        if(!toast) return;
-        const p = toast.querySelector('p.font-bold');
-        const oldMsg = p.innerText;
-        p.innerText = msg;
-        toast.classList.remove('translate-y-40', 'opacity-0');
-        setTimeout(() => {
-            toast.classList.add('translate-y-40', 'opacity-0');
-            setTimeout(() => p.innerText = oldMsg, 500);
-        }, 3000);
+    const legalData = {
+        'Mission': '<p>Our mission is to provide Cambodians with direct access to high-quality, authentic USA-made health supplements. We bridge the gap between premium American manufacturing and your doorstep, ensuring every product is 100% genuine and effective.</p>',
+        'Partnerships': '<p>We partner exclusively with FDA-compliant suppliers in the United States. All products are verified for authenticity and stored in climate-controlled environments during transit.</p>',
+        'Shipping': '<p>Products are shipped via Air Freight from the USA to our Phnom Penh hub. Local delivery within Phnom Penh takes 1-2 days. Provincial delivery takes 2-3 days.</p>',
+        'Return': '<p>Due to health regulations, we only accept returns if the product seal is broken upon delivery or if the item is incorrect. Please check your items during pick-up.</p>',
+        'Terms': '<p>By using this site, you agree that these are supplements and not intended to replace medical advice. All orders are subject to availability.</p>',
+        'Privacy': '<p>We protect your order data. We never share your phone number or address with third parties except for delivery purposes.</p>',
+        'Disclaimer': '<p><b>Disclaimer:</b> Statements regarding dietary supplements have not been evaluated by the FDA. These products are not intended to diagnose, treat, cure, or prevent any disease.</p>'
+    };
+
+    function openLegal(key) {
+        document.getElementById('legalTitle').innerText = key;
+        document.getElementById('legalContent').innerHTML = legalData[key];
+        document.getElementById('legalModal').classList.remove('hidden');
+    }
+
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.body.style.overflow='auto'; }
+    function handleSearch() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const category = document.getElementById('categoryFilter').value;
+        const filtered = products.filter(p => p.name.toLowerCase().includes(query) && (category === 'All' || p.category === category));
+        renderProducts(filtered);
+    }
+    function resetFilters() { document.getElementById('searchInput').value=''; document.getElementById('categoryFilter').value='All'; handleSearch(); }
+    function handleHeaderOrder() { openOrderModal(); }
+    function showNotification(m) {
+        const t = document.getElementById('successToast');
+        document.getElementById('toastText').innerText = m;
+        t.classList.remove('translate-y-40', 'opacity-0');
+        setTimeout(() => t.classList.add('translate-y-40', 'opacity-0'), 4000);
     }
 </script>
-
 </body>
 </html>
