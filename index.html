@@ -105,6 +105,26 @@
     </div>
 </div>
 
+<!-- AI Confirmation Modal (The "Agent" Chat) -->
+<div id="aiConfirmModal" class="fixed inset-0 z-[150] hidden flex items-center justify-center p-4">
+    <div class="modal-bg absolute inset-0"></div>
+    <div class="bg-white rounded-[2.5rem] max-w-md w-full relative shadow-2xl p-10 text-center overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
+        <div class="ai-avatar w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-emerald-50 shadow-inner">
+            <i class="fas fa-robot text-4xl text-emerald-600"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">ការកុម្ម៉ង់ជោគជ័យ!</h2>
+        <div class="bg-slate-50 p-6 rounded-2xl text-left mb-8 border border-slate-100">
+            <p id="aiResponseMessage" class="text-slate-700 leading-relaxed italic">
+                "ជម្រាបសួរ! ខ្ញុំជាជំនួយការ AI របស់ Longlifehealth។ ខ្ញុំបានទទួលការកុម្ម៉ង់របស់អ្នករួចរាល់ហើយ។ ក្រុមការងារយើងនឹងពិនិត្យមើលព័ត៌មានរបស់អ្នក ហើយនឹងទាក់ទងទៅកាន់អ្នកតាមរយៈ Telegram ឬលេខទូរស័ព្ទក្នុងពេលឆាប់ៗនេះ។ សូមអរគុណដែលបានជឿទុកចិត្តលើពួកយើង!"
+            </p>
+        </div>
+        <button onclick="closeModal('aiConfirmModal')" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-black transition">យល់ព្រម</button>
+    </div>
+</div>
+
+
+	
 <!-- Legal Modal (For Mission, Terms, etc.) -->
 <div id="legalModal" class="fixed inset-0 z-[130] hidden flex items-center justify-center p-4">
     <div class="modal-bg absolute inset-0" onclick="closeModal('legalModal')"></div>
@@ -330,6 +350,10 @@
                 body: JSON.stringify(orderData)
             });
 
+// 3. បង្ហាញ AI Response (Agent Talking)
+            document.getElementById('aiResponseMessage').innerText = `សួស្តីបង ${buyerName}! ខ្ញុំជាភ្នាក់ងារ AI របស់ Longlifehealth។ ខ្ញុំបានទទួលការកុម្ម៉ង់ "${productName}" របស់បងរួចហើយ។ ឥឡូវនេះខ្ញុំកំពុងបញ្ជូនទិន្នន័យទៅកាន់ផ្នែកលក់ ដើម្បីរៀបចំឥវ៉ាន់ជូនបង។ ពួកយើងនឹងទាក់ទងទៅបងក្នុងពេលឆាប់ៗនេះ! សូមអរគុណ និងសូមមានសុខភាពល្អ!`;
+
+			
             showNotification("Success! Order sent to Telegram and Worksheet.");
             closeModal('orderModal');
             e.target.reset();
